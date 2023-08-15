@@ -42,22 +42,16 @@ export function createIDBError(aType: string, aErrorCode: number, ParentErrorCla
 IDBError.createError = createIDBError
 
 const IDBErrorCodeStart = 0x80
-const kAlreadyOpened = 0
-const kOpening = 1
-const kBlocked = 2
-const kAlreadyEnd = 3
-const kAborted = 4
 
 const IDBErrorCodes = {
-  AlreadyOpened: kAlreadyOpened,
-  Opening: kOpening,
-  Blocked: kBlocked,
-  AlreadyEnd: kAlreadyEnd,
-  Aborted: kAborted,
+  AlreadyOpened: 0,
+  Opening: 1,
+  Blocked: 2,
+  AlreadyEnd: 3,
+  Aborted: 4,
 }
 
 for (const k in IDBErrorCodes) {
   const Err = createIDBError(k, IDBErrorCodes[k] + IDBErrorCodeStart)
   IDBErrors[k + 'Error'] = Err
 }
-
