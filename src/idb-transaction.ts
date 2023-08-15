@@ -104,7 +104,6 @@ export class IndexedDBTransaction {
 
   commit() {
     this.transaction.commit()
-    this._close()
   }
 
   abort() {
