@@ -1,6 +1,8 @@
+import { IDBErrors } from './idb-error'
 import type { IDBMigrations, MingrationFn } from './idb-migration'
 import { upgrade } from "./idb-migration";
 import { IndexedDBTransaction } from './idb-transaction';
+
 
 /**
  * Represents an IndexedDB database.
@@ -32,7 +34,7 @@ export class IndexedDBDatabase {
 
   get db() {
     if (!this._db) {
-      throw new Error('Database is not open.')
+      throw new IDBErrors.NotOpenedError('database not opened')
     }
     return this._db
   }
@@ -59,7 +61,7 @@ export class IndexedDBDatabase {
     migrations?: IDBMigrations | MingrationFn
   ): Promise<IDBDatabase> {
     if (this._db) {
-      throw new Error(dbName + ' Database is already open.')
+      throw new IDBErrors.AlreadyOpenedError(dbName + ' Database is already opened.')
     }
     if (this._openning) {
       return new Promise((resolve, reject) => {
@@ -72,7 +74,7 @@ export class IndexedDBDatabase {
           ++count
           if (count > 100) {
             clearInterval(interval)
-            reject(new Error(dbName + ' Database is opening.'))
+            reject(new IDBErrors.OpeningError(dbName + ' Database is opening.'))
           }
         }, 100)
       })
@@ -93,6 +95,11 @@ export class IndexedDBDatabase {
         this._db = db
         this._openning = undefined
         resolve(db)
+      }
+
+      request.onblocked = () => {
+        this._openning = undefined
+        reject(new IDBErrors.BlockedError(dbName + ' database is blocked'))
       }
 
       if (migrations) {
@@ -121,7 +128,7 @@ export class IndexedDBDatabase {
     options?: IDBTransactionOptions
   ) {
     if (!this.db.objectStoreNames.contains(name)) {
-      throw new Error(`${name} store does not exist`)
+      throw new IDBErrors.NotFoundError(`${name} store does not exist`)
     }
     const trans = this.transaction(name, mode, options)
     return trans.objectStore(name)

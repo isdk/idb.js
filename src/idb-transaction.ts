@@ -1,19 +1,22 @@
-import { IndexedDBStore } from "./idb-store";
+import { IDBErrors } from './idb-error'
+import { IndexedDBStore } from './idb-store'
 
-type CloseFn = (err?: Error) => void;
+type CloseFn = (err?: Error) => void
 
 interface IDBTransactionExOptions extends IDBTransactionOptions {
-  onClose?: CloseFn;
+  onClose?: CloseFn
 }
 
 export function handleError(cb: Function | Event, event?: Event) {
   if (cb instanceof Event) {
-    event = cb;
-    cb = undefined;
+    event = cb
+    cb = undefined
   }
-  event.preventDefault();
-  event.stopPropagation();
-  if (typeof cb === "function") {cb((event.target as any).error)}
+  event.preventDefault()
+  event.stopPropagation()
+  if (typeof cb === 'function') {
+    cb((event.target as any).error)
+  }
 }
 
 export class IndexedDBTransaction {
@@ -40,7 +43,7 @@ export class IndexedDBTransaction {
 
   public get transaction() {
     if (!this._transaction) {
-      throw new Error('Transaction is finished')
+      throw new IDBErrors.AlreadyEndError('Transaction is finished')
     }
     return this._transaction
   }
@@ -72,7 +75,7 @@ export class IndexedDBTransaction {
       }
       const abort = () => {
         unlisten()
-        this._close(new Error('Transaction aborted'))
+        this._close(new IDBErrors.AbortedError('Transaction aborted'))
       }
       const unlisten = () => {
         const transaction = this._transaction
@@ -113,7 +116,7 @@ export class IndexedDBTransaction {
   public objectStore(name: string) {
     const store = this.transaction.objectStore(name)
     if (!store) {
-      throw new Error(`${name} store does not exist`)
+      throw new IDBErrors.NotFoundError(`${name} store does not exist`)
     }
     return new IndexedDBStore(store, this)
   }

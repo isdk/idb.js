@@ -4,6 +4,7 @@ import { beforeEach, describe, expect, test } from 'vitest'
 
 import type { IndexedDBStore } from '../src';
 import { IndexedDBDatabase } from '../src'
+import { IDBErrors } from '../src/idb-error';
 
 export const GDB = new IndexedDBDatabase()
 let store
@@ -39,12 +40,25 @@ export function runBaseStoreTests(createStoreInstance) {
     }
   })
 
+  test('Error: Already Opened', async () => {
+    let error
+    try {
+      await GDB.open('test', 1, () => {})
+    } catch(err) {
+      error = err
+    }
+    expect(error).toBeInstanceOf(IDBErrors.AlreadyOpenedError)
+    expect(error.message).toMatch('already opened')
+  })
+
   test('name', async () => {
     expect(store.name).toBe('test')
   })
 
   test('keyPath', async () => {
     expect(store.keyPath).toBeNull()
+    const keyStore = await GDB.getStore('testKeyPath', 'readonly')
+    expect(keyStore.keyPath).toBe('id')
   })
 
   describe('get', () => {
