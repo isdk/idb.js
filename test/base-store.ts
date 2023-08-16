@@ -1,5 +1,3 @@
-import 'fake-indexeddb/auto'
-
 import { beforeEach, describe, expect, test } from 'vitest'
 
 import type { IndexedDBStore } from '../src';
@@ -17,7 +15,7 @@ export async function createStore() {
       db.createObjectStore('testKeyPath', { keyPath: 'id' })
     })
   }
-  
+
   if (!store || !store.transaction || store.transaction.finished) {
     store = await GDB.getStore('test')
   }
@@ -29,7 +27,7 @@ export async function createStore() {
 
 
 export function runBaseStoreTests(createStoreInstance) {
-  let store: IndexedDBStore 
+  let store: IndexedDBStore
 
   beforeEach(async () => {
     if (typeof createStoreInstance === 'function') {
