@@ -24,6 +24,7 @@ export class IndexedDBTransaction {
   private _onClose?: CloseFn
   private _storeName: string | string[]
   private _mode: IDBTransactionMode
+  private _stores: IndexedDBStore[]
 
   public get db() {
     return this._transaction?.db
@@ -64,26 +65,9 @@ export class IndexedDBTransaction {
     options?: IDBTransactionExOptions
   ) {
     if (!this._transaction) {
-      const complete = () => {
-        unlisten()
-        this._close()
-      }
-      const error = (event: Event) => {
-        unlisten()
-        handleError(event)
-        this._close((event.target as IDBTransaction).error)
-      }
-      const abort = () => {
-        unlisten()
-        this._close(new IDBErrors.AbortedError('Transaction aborted'))
-      }
-      const unlisten = () => {
-        const transaction = this._transaction
-        transaction.removeEventListener('complete', complete)
-        transaction.removeEventListener('error', error)
-        transaction.removeEventListener('abort', abort)
-      }
+      this._stores = []
 
+      const _close = this._close.bind(this)
       if (db instanceof IDBDatabase) {
         this._storeName = storeName
         this._mode = mode
@@ -92,25 +76,30 @@ export class IndexedDBTransaction {
         }
         const transaction = db.transaction(storeName, mode, options)
         this._transaction = transaction
-        transaction.addEventListener('complete', complete)
-        transaction.addEventListener('error', error)
-        transaction.addEventListener('abort', abort)
+        genTransactionEvents(transaction, _close)
       } else {
         this._transaction = db
-        db.addEventListener('complete', complete)
-        db.addEventListener('error', error)
-        db.addEventListener('abort', abort)
+        genTransactionEvents(db, _close)
       }
       return true
     }
   }
 
-  commit() {
-    this.transaction.commit()
+  async commit() {
+    return <Promise<void>>new Promise((resolve, reject) => {
+      genTransactionEvents(this.transaction, (err) => {
+        if (err) {return reject(err)}
+        resolve()
+      })      
+      this.transaction.commit()
+    })
   }
 
-  abort() {
-    this.transaction.abort()
+  async abort() {
+    return <Promise<void>>new Promise((resolve) => {
+      this.transaction.addEventListener('abort', resolve as any)
+      this.transaction.abort()
+    })
   }
 
   public objectStore(name: string) {
@@ -118,7 +107,9 @@ export class IndexedDBTransaction {
     if (!store) {
       throw new IDBErrors.NotFoundError(`${name} store does not exist`)
     }
-    return new IndexedDBStore(store, this)
+    const result = new IndexedDBStore(store, this)
+    this._stores.push(result)
+    return result
   }
 
   private _close(err?: Error) {
@@ -132,5 +123,35 @@ export class IndexedDBTransaction {
     if (this._onClose) {
       this._onClose(err)
     }
+
+    for (const store of this._stores) {
+      store._close()
+    }
+    this._stores = []
   }
+}
+
+
+function genTransactionEvents(transaction: IDBTransaction, callback: Function) {
+  const complete = function() {
+    unlisten()
+    callback()
+  }
+  const error = function(event: Event) {
+    unlisten()
+    handleError(event)
+    callback((event.target as IDBTransaction).error)
+  }
+  const abort = function() {
+    unlisten()
+    callback(new IDBErrors.AbortedError('Transaction aborted'))
+  }
+  const unlisten = function() {
+    transaction.removeEventListener('complete', complete)
+    transaction.removeEventListener('error', error)
+    transaction.removeEventListener('abort', abort)
+  }
+  transaction.addEventListener('complete', complete)
+  transaction.addEventListener('error', error)
+  transaction.addEventListener('abort', abort)
 }
