@@ -38,7 +38,7 @@
   },
   "scripts": {
     "build-fast": "tsup",
-    "build": "npm run build-fast --dts-resolve --dts && npm run doc:md",
+    "build": "npm run build-fast --dts-resolve --dts && npm run doc.md",
     "build.cjs": "babel src --out-dir lib --config-file ./.babelrc",
     "build.ts": "tsc --declaration --emitDeclarationOnly --outDir lib",
     "clean": "rm -fr web docs lib",
