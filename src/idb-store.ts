@@ -1,4 +1,5 @@
 import { IndexedDBBaseStore } from "./idb-base-store";
+import { IDBErrors } from "./idb-error";
 import { IndexedDBIndex } from "./idb-index";
 import { IndexedDBTransaction } from "./idb-transaction";
 import { reqToPromise } from "./idb-util";
@@ -11,14 +12,14 @@ export class IndexedDBStore extends IndexedDBBaseStore {
    * Gets the index names associated with the object store.
    */
   public get indexNames(): DOMStringList {
-    return this._store.indexNames
+    return this.store.indexNames
   }
 
   /**
    * Gets the transaction associated with the object store.
    */
   public get transaction(): IndexedDBTransaction {
-    if (!this._transaction && this._store.transaction) {
+    if (!this._transaction && this.store.transaction) {
       this._transaction = new IndexedDBTransaction(this._store.transaction)
     }
     return this._transaction
@@ -28,7 +29,16 @@ export class IndexedDBStore extends IndexedDBBaseStore {
    * Gets a value indicating whether the object store has an auto-incrementing key.
    */
   public get autoIncrement(): boolean {
-    return this._store.autoIncrement
+    return this.store.autoIncrement
+  }
+
+  public get store(): IDBObjectStore {
+    if (!this._store) {throw new IDBErrors.NotOpenedError("Store is not open")}
+    return this._store
+  }
+
+  public get opened() : boolean {
+    return !!this._store
   }
 
   /**
@@ -62,7 +72,7 @@ export class IndexedDBStore extends IndexedDBBaseStore {
    * await store.put({ name: 'John', age: 30 }, 1);
    */
   async put(value: any, key?: IDBValidKey) {
-    const store = this._store
+    const store = this.store
     return <Promise<IDBValidKey>>reqToPromise(store.put(value, key))
   }
 
@@ -75,7 +85,7 @@ export class IndexedDBStore extends IndexedDBBaseStore {
    * await store.add({ name: 'John', age: 30 }, 1);
    */
   async add(value: any, key?: IDBValidKey) {
-    const store = this._store
+    const store = this.store
     return <Promise<IDBValidKey>>(
       reqToPromise(key !== undefined ? store.add(value, key) : store.add(value))
     )
@@ -89,7 +99,7 @@ export class IndexedDBStore extends IndexedDBBaseStore {
    * await store.remove(1);
    */
   async remove(key: IDBValidKey) {
-    const store = this._store
+    const store = this.store
     await reqToPromise(store.delete(key))
   }
 
@@ -100,7 +110,7 @@ export class IndexedDBStore extends IndexedDBBaseStore {
    * await store.clear();
    */
   async clear() {
-    const store = this._store
+    const store = this.store
     await reqToPromise(store.clear())
   }
 
@@ -118,7 +128,7 @@ export class IndexedDBStore extends IndexedDBBaseStore {
     keyPath: string | string[],
     options?: IDBIndexParameters
   ) {
-    return new IndexedDBIndex(this._store.createIndex(name, keyPath, options))
+    return new IndexedDBIndex(this.store.createIndex(name, keyPath, options))
   }
 
   /**
@@ -128,7 +138,7 @@ export class IndexedDBStore extends IndexedDBBaseStore {
    * store.deleteIndex('nameIndex');
    */
   deleteIndex(name: string) {
-    this._store.deleteIndex(name)
+    this.store.deleteIndex(name)
   }
 
   /**
@@ -139,6 +149,11 @@ export class IndexedDBStore extends IndexedDBBaseStore {
    * const index = store.index('nameIndex');
    */
   index(name: string) {
-    return new IndexedDBIndex(this._store.index(name))
+    return new IndexedDBIndex(this.store.index(name))
+  }
+
+  _close() {
+    this._store = undefined
+    this._transaction = undefined
   }
 }
