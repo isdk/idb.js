@@ -16,7 +16,8 @@ export async function createStore() {
     })
   }
 
-  if (!store || !store.transaction || store.transaction.finished) {
+  // if (!store || !store.opened || !store.transaction || store.transaction.finished) {
+  if (!store || !store.opened) {
     store = await GDB.getStore('test')
   }
 
