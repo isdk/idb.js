@@ -42,7 +42,7 @@ describe('IndexedDB ObjectStore', async () => {
       expect(result).toEqual(value)
     })
 
-    it('no key', async () => {
+    it('inline key', async () => {
       const store = GDB.getStore('testKeyPath')
       const value: any = { id: 456, a: 1.23, b: 2, c: 'hi', d: new Date() }
       const key = await store.put(value)
