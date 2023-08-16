@@ -67,7 +67,11 @@ const migrations = [
 ];
 */
 
-export type MingrationFn = (db: IDBDatabase, transaction: IDBTransaction) => void | Promise<void>
+export type MingrationFn = (
+  db: IDBDatabase,
+  transaction: IDBTransaction,
+  evt?: IDBVersionChangeEvent
+) => void | Promise<void>
 
 export interface IDBMigrationObjectStoreOptions extends IDBObjectStoreParameters {
   name: string
@@ -78,8 +82,15 @@ export interface IDBMigrationObjectStoreOptions extends IDBObjectStoreParameters
 export type IDBMigrationObjectStore = IDBMigrationObjectStoreOptions | string
 
 export interface IDBMigrationIndex extends IDBIndexParameters {
+  /**
+   * the index name
+   */
   name: string
-  keyPath: string
+  keyPath: string | string[]
+  /**
+   * the index belongs to the store name
+   */
+  store?: string
 }
 
 /**
@@ -99,13 +110,16 @@ export interface IDBMigration {
    */
   rollback?: MingrationFn
   /**
-   * the object stores to create
+   * the object store(s) to create
    */
-  stores?:
-    | IDBMigrationObjectStore
-    | (IDBMigrationObjectStore)[]
-    | null
+  stores?: IDBMigrationObjectStore | IDBMigrationObjectStore[] | null
   store?: IDBMigrationObjectStore | null
+
+  /**
+   * the index(es) added to exists object store
+   */
+  index?: IDBMigrationIndex | null
+  indexes?: IDBMigrationIndex[] | null
 }
 
 /**
@@ -181,7 +195,7 @@ export async function upgrade(
   oldVersion: number,
   newVersion: number,
   db: IDBDatabase,
-  transaction: IDBTransaction
+  transaction: IDBTransaction,
 ) {
   mingrations = sortMigrations(mingrations)
   for (let i = 0; i < mingrations.length; i++) {
@@ -193,31 +207,20 @@ export async function upgrade(
           stores = [stores]
         }
         for (const store of stores) {
-          if (typeof store === 'string') {
-            if (!db.objectStoreNames.contains(store)) {
-              db.createObjectStore(store)
-            }
-          } else if (store?.name) {
-            const name = store.name
-            const objStore = db.objectStoreNames.contains(name)
-              ? transaction.objectStore(name)
-              : db.createObjectStore(name, store)
-            let indexes = store.indexes || store.index
-            if (indexes) {
-              if (!Array.isArray(indexes)) {
-                indexes = [indexes]
-              }
-              for (const index of indexes) {
-                const ixName = index.name
-                if (objStore.indexNames.contains(ixName)) {
-                  objStore.deleteIndex(ixName)
-                }
-                objStore.createIndex(ixName, index.keyPath, index)
-              }
-            }
-          }
+          createObjectStore(store, db, transaction)
         }
       }
+
+      let indexes = migration.indexes || migration.index
+      if (indexes) {
+        if (!Array.isArray(indexes)) {
+          indexes = [indexes]
+        }
+        for (const index of indexes) {
+          createIndex(index, db, transaction)
+        }
+      }
+
       migration.upgrade && (await migration.upgrade(db, transaction))
     }
   }
@@ -225,6 +228,8 @@ export async function upgrade(
 
 /**
  * Rolls back the database by executing the rollback functions of the applicable migrations.
+ * Note: IndexedDB do not support rollback.
+ * 
  * @param migrations - The array of migrations.
  * @param oldVersion - The old version of the database.
  * @param newVersion - The new version of the database.
@@ -252,15 +257,12 @@ export async function rollback(
   oldVersion: number,
   newVersion: number,
   db: IDBDatabase,
-  transaction: IDBTransaction
+  transaction: IDBTransaction,
 ) {
-  mingrations = sortMigrations(mingrations, true);
+  mingrations = sortMigrations(mingrations, true)
   for (let i = 0; i < mingrations.length; i++) {
     const migration = mingrations[i]
-    if (
-      migration.version > oldVersion &&
-      migration.version <= newVersion
-    ) {
+    if (migration.version > oldVersion && migration.version <= newVersion) {
       migration.rollback && (await migration.rollback(db, transaction))
 
       let stores = migration.stores || migration.store
@@ -276,6 +278,57 @@ export async function rollback(
           }
         }
       }
+
+      let indexes = migration.indexes || migration.index
+      if (indexes) {
+        if (!Array.isArray(indexes)) {
+          indexes = [indexes]
+        }
+        for (const index of indexes) {
+          if (index.store) {
+            if (db.objectStoreNames.contains(index.store)) {
+              const objStore = transaction.objectStore(index.store)
+              objStore.deleteIndex(index.name)
+            }
+          }
+        }
+      }
     }
   }
+}
+
+function createObjectStore(store: IDBMigrationObjectStore, db: IDBDatabase, transaction: IDBTransaction) {
+  if (typeof store === 'string') {
+    if (!db.objectStoreNames.contains(store)) {
+      db.createObjectStore(store)
+    }
+  } else if (store?.name) {
+    const name = store.name
+    const objStore = db.objectStoreNames.contains(name)
+      ? transaction.objectStore(name)
+      : db.createObjectStore(name, store)
+    let indexes = store.indexes || store.index
+    if (indexes) {
+      if (!Array.isArray(indexes)) {
+        indexes = [indexes]
+      }
+      for (const index of indexes) {
+        createIndex(index, db, transaction, objStore)
+      }
+    }
+  }
+}
+
+function createIndex(
+  index: IDBMigrationIndex,
+  db: IDBDatabase,
+  transaction: IDBTransaction,
+  objStore?: IDBObjectStore
+) {
+  if (!objStore) {objStore = transaction.objectStore(index.store)}
+  const ixName = index.name
+  if (objStore.indexNames.contains(ixName)) {
+    objStore.deleteIndex(ixName)
+  }
+  objStore.createIndex(ixName, index.keyPath, index)
 }
