@@ -2,6 +2,7 @@ import { IDBErrors } from './idb-error'
 import type { IDBMigrations, MingrationFn } from './idb-migration'
 import { upgrade } from "./idb-migration";
 import { IndexedDBTransaction } from './idb-transaction';
+import { reqToPromise } from './idb-util';
 
 
 /**
@@ -43,6 +44,10 @@ export class IndexedDBDatabase {
     return this._db != null
   }
 
+  static async delete(name: string) {
+    return reqToPromise(indexedDB.deleteDatabase(name))
+  }
+
   /**
    * Constructs a new instance of IndexedDBDatabase.
    */
@@ -58,7 +63,7 @@ export class IndexedDBDatabase {
   public async open(
     dbName: string,
     version?: number,
-    migrations?: IDBMigrations | MingrationFn
+    migrations?: IDBMigrations | MingrationFn,
   ): Promise<IDBDatabase> {
     if (this._db) {
       throw new IDBErrors.AlreadyOpenedError(dbName + ' Database is already opened.')
@@ -94,6 +99,9 @@ export class IndexedDBDatabase {
         const db = (event.target as IDBOpenDBRequest).result
         this._db = db
         this._openning = undefined
+        db.addEventListener('close', () => {
+          this._db = undefined
+        })
         resolve(db)
       }
 
@@ -107,14 +115,14 @@ export class IndexedDBDatabase {
           const db = (event.target as IDBOpenDBRequest).result
           const transaction = (event.target as IDBOpenDBRequest).transaction
           if (typeof migrations === 'function') {
-            migrations(db, transaction)
+            migrations(db, transaction, event)
           } else {
             upgrade(
               migrations,
               event.oldVersion,
               event.newVersion,
               db,
-              transaction
+              transaction,
             )
           }
         }
@@ -134,12 +142,23 @@ export class IndexedDBDatabase {
     return trans.objectStore(name)
   }
 
-  /**
-   * returns immediately and closes the connection in a separate thread.
-   */
-  close() {
-    this.db.close()
-    this._db = undefined
+  async close() {
+    const db = this.db
+    // this._db = undefined
+    return <Promise<void>>new Promise((resolve) => {
+      db.addEventListener('close', resolve as any)
+      db.close()
+      // setTimeout(()=>{
+      //   this._db = undefined
+      //   resolve()
+      // }, 1000)
+    })
+  }
+
+  async delete() {
+    const name = this.name
+    await this.close()
+    return IndexedDBDatabase.delete(name)
   }
 
   transaction(
