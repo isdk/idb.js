@@ -111,8 +111,8 @@ export class IndexedDBDatabase {
           } else {
             upgrade(
               migrations,
-              event.newVersion,
               event.oldVersion,
+              event.newVersion,
               db,
               transaction
             )

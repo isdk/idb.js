@@ -1,6 +1,5 @@
 /*
-
-创建与删除对象存储（Object Store）的操作只能在 IndexedDB 的 onupgradeneeded 事件处理程序中进行。
+The operations of creating and deleting object stores can only be performed within the onupgradeneeded event handler of IndexedDB.
 
 const migrations = [
   {
@@ -25,9 +24,63 @@ const migrations = [
     }
   }
 ];
+
+const migrations = [
+  {
+    version: 1,
+    names: 'books
+  },
+  {
+    version: 2,
+    upgrade: function(db, transaction) {
+      const objectStore = transaction.objectStore('books');
+      objectStore.createIndex('author', 'author', { unique: false });
+    },
+    rollback: function(db, transaction) {
+      const objectStore = transaction.objectStore('books');
+      objectStore.deleteIndex('author');
+    }
+  }
+];
+
+const migrations = [
+  {
+    version: 1,
+    stores: [
+      {
+        name: 'books',
+        keyPath: 'id',
+        indexes: [
+          { name: 'titleIndex', keyPath: 'title', options: { unique: false } }
+        ]
+      },
+      {
+        name: 'authors',
+        keyPath: 'id',
+        indexes: [
+          { name: 'nameIndex', keyPath: 'name', options: { unique: true } },
+          { name: 'countryIndex', keyPath: 'country', options: { unique: false } }
+        ]
+      }
+    ]
+  }
+];
 */
 
 export type MingrationFn = (db: IDBDatabase, transaction: IDBTransaction) => void | Promise<void>
+
+export interface IDBMigrationObjectStoreOptions extends IDBObjectStoreParameters {
+  name: string
+  indexes?: IDBMigrationIndex[] | IDBMigrationIndex | null
+  index?: IDBMigrationIndex | null
+}
+
+export type IDBMigrationObjectStore = IDBMigrationObjectStoreOptions | string
+
+export interface IDBMigrationIndex extends IDBIndexParameters {
+  name: string
+  keyPath: string
+}
 
 /**
  * Represents a migration for an IndexedDB database.
@@ -46,9 +99,13 @@ export interface IDBMigration {
    */
   rollback?: MingrationFn
   /**
-   * the object store names instead of upgrade/rollback callback function
+   * the object stores to create
    */
-  names?: string|string[]
+  stores?:
+    | IDBMigrationObjectStore
+    | (IDBMigrationObjectStore)[]
+    | null
+  store?: IDBMigrationObjectStore | null
 }
 
 /**
@@ -97,30 +154,71 @@ function sortMigrations(mingrations: IDBMigrations, reverse?: boolean): IDBMigra
  *       objectStore.deleteIndex('author')
  *     }
  *   }
- * ], 2, 1, db, transaction)
+ * ], 1, 2, db, transaction)
+ * @example
+ * await upgrade([
+ *   {
+ *     version: 1,
+ *     stores: [{
+ *      name: 'books',
+ *      keyPath: 'id',
+ *      indexes: [{
+ *        name: "title", keyPath: "title", unique: false
+ *      }]
+ *     }],
+ *   },
+ *   {
+ *     version: 2,
+ *     store: {
+ *       name: 'books',
+ *       index: {name: 'author', keyPath: 'author', unique: false}
+ *     }
+ *   }
+ * ], 1, 2, db, transaction)
  */
 export async function upgrade(
   mingrations: IDBMigrations,
-  newVersion: number,
   oldVersion: number,
+  newVersion: number,
   db: IDBDatabase,
   transaction: IDBTransaction
 ) {
-  mingrations = sortMigrations(mingrations);
+  mingrations = sortMigrations(mingrations)
   for (let i = 0; i < mingrations.length; i++) {
     const migration = mingrations[i]
-    if (
-      migration.version > oldVersion &&
-      migration.version <= newVersion
-    ) {
-      migration.upgrade && (await migration.upgrade(db, transaction))
-      let names = migration.names
-      if (names) {
-        if (!Array.isArray(names)) {names = [names]}
-        for (const name of migration.names) {
-          if (!db.objectStoreNames.contains(name)) {db.createObjectStore(name)}
+    if (migration.version > oldVersion && migration.version <= newVersion) {
+      let stores = migration.stores || migration.store
+      if (stores) {
+        if (!Array.isArray(stores)) {
+          stores = [stores]
+        }
+        for (const store of stores) {
+          if (typeof store === 'string') {
+            if (!db.objectStoreNames.contains(store)) {
+              db.createObjectStore(store)
+            }
+          } else if (store?.name) {
+            const name = store.name
+            const objStore = db.objectStoreNames.contains(name)
+              ? transaction.objectStore(name)
+              : db.createObjectStore(name, store)
+            let indexes = store.indexes || store.index
+            if (indexes) {
+              if (!Array.isArray(indexes)) {
+                indexes = [indexes]
+              }
+              for (const index of indexes) {
+                const ixName = index.name
+                if (objStore.indexNames.contains(ixName)) {
+                  objStore.deleteIndex(ixName)
+                }
+                objStore.createIndex(ixName, index.keyPath, index)
+              }
+            }
+          }
         }
       }
+      migration.upgrade && (await migration.upgrade(db, transaction))
     }
   }
 }
@@ -164,13 +262,18 @@ export async function rollback(
       migration.version <= newVersion
     ) {
       migration.rollback && (await migration.rollback(db, transaction))
-      let names = migration.names
-      if (names) {
-        if (!Array.isArray(names)) {
-          names = [names]
+
+      let stores = migration.stores || migration.store
+      if (stores) {
+        if (!Array.isArray(stores)) {
+          stores = [stores]
         }
-        for (const name of migration.names) {
-          db.deleteObjectStore(name)
+        for (const store of stores) {
+          if (typeof store === 'string') {
+            db.deleteObjectStore(store)
+          } else if (store?.name) {
+            db.deleteObjectStore(store.name)
+          }
         }
       }
     }
