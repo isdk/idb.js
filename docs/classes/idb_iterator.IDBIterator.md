@@ -85,7 +85,7 @@ Constructs an instance of IDBIterator.
 
 #### Defined in
 
-[src/idb-iterator.ts:70](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L70)
+[src/idb-iterator.ts:70](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L70)
 
 ## Properties
 
@@ -95,7 +95,7 @@ Constructs an instance of IDBIterator.
 
 #### Defined in
 
-[src/idb-iterator.ts:61](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L61)
+[src/idb-iterator.ts:61](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L61)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[src/idb-iterator.ts:60](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L60)
+[src/idb-iterator.ts:60](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L60)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[src/idb-iterator.ts:59](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L59)
+[src/idb-iterator.ts:59](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L59)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[src/idb-iterator.ts:58](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L58)
+[src/idb-iterator.ts:58](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L58)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[src/idb-iterator.ts:57](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L57)
+[src/idb-iterator.ts:57](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L57)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[src/idb-iterator.ts:56](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L56)
+[src/idb-iterator.ts:56](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L56)
 
 ___
 
@@ -183,7 +183,7 @@ ___
 
 #### Defined in
 
-[src/idb-iterator.ts:62](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L62)
+[src/idb-iterator.ts:62](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L62)
 
 ___
 
@@ -195,7 +195,7 @@ The IndexedDB object store or index to iterate over.
 
 #### Defined in
 
-[src/idb-iterator.ts:71](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L71)
+[src/idb-iterator.ts:71](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L71)
 
 ___
 
@@ -205,7 +205,7 @@ ___
 
 #### Defined in
 
-[src/idb-iterator.ts:55](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L55)
+[src/idb-iterator.ts:55](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L55)
 
 ## Methods
 
@@ -223,7 +223,7 @@ AsyncIterableIterator.[asyncIterator]
 
 #### Defined in
 
-[src/idb-iterator.ts:96](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L96)
+[src/idb-iterator.ts:96](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L96)
 
 ___
 
@@ -243,7 +243,7 @@ ___
 
 #### Defined in
 
-[src/idb-iterator.ts:151](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L151)
+[src/idb-iterator.ts:151](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L151)
 
 ___
 
@@ -257,7 +257,7 @@ ___
 
 #### Defined in
 
-[src/idb-iterator.ts:142](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L142)
+[src/idb-iterator.ts:142](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L142)
 
 ___
 
@@ -279,4 +279,4 @@ AsyncIterableIterator.next
 
 #### Defined in
 
-[src/idb-iterator.ts:104](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L104)
+[src/idb-iterator.ts:104](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L104)

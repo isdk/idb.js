@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[src/idb-migration.ts:79](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-migration.ts#L79)
+[src/idb-migration.ts:79](https://github.com/isdk/idb.js/blob/4346aae/src/idb-migration.ts#L79)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[src/idb-migration.ts:78](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-migration.ts#L78)
+[src/idb-migration.ts:78](https://github.com/isdk/idb.js/blob/4346aae/src/idb-migration.ts#L78)
 
 ___
 
@@ -76,4 +76,4 @@ ___
 
 #### Defined in
 
-[src/idb-migration.ts:77](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-migration.ts#L77)
+[src/idb-migration.ts:77](https://github.com/isdk/idb.js/blob/4346aae/src/idb-migration.ts#L77)

@@ -27,7 +27,7 @@ Represents a record in IndexedDB with a key and value.
 
 #### Defined in
 
-[src/idb-iterator.ts:6](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L6)
+[src/idb-iterator.ts:6](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L6)
 
 ___
 
@@ -37,4 +37,4 @@ ___
 
 #### Defined in
 
-[src/idb-iterator.ts:7](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L7)
+[src/idb-iterator.ts:7](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L7)

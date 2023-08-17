@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[src/idb-error.ts:31](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-error.ts#L31)
+[src/idb-error.ts:31](https://github.com/isdk/idb.js/blob/4346aae/src/idb-error.ts#L31)
 
 ___
 
@@ -162,7 +162,7 @@ ___
 
 #### Defined in
 
-[src/idb-error.ts:30](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-error.ts#L30)
+[src/idb-error.ts:30](https://github.com/isdk/idb.js/blob/4346aae/src/idb-error.ts#L30)
 
 ___
 
@@ -172,7 +172,7 @@ ___
 
 #### Defined in
 
-[src/idb-error.ts:27](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-error.ts#L27)
+[src/idb-error.ts:27](https://github.com/isdk/idb.js/blob/4346aae/src/idb-error.ts#L27)
 
 ___
 
@@ -182,7 +182,7 @@ ___
 
 #### Defined in
 
-[src/idb-error.ts:29](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-error.ts#L29)
+[src/idb-error.ts:29](https://github.com/isdk/idb.js/blob/4346aae/src/idb-error.ts#L29)
 
 ___
 
@@ -318,7 +318,7 @@ ___
 
 #### Defined in
 
-[src/idb-error.ts:28](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-error.ts#L28)
+[src/idb-error.ts:28](https://github.com/isdk/idb.js/blob/4346aae/src/idb-error.ts#L28)
 
 ___
 
@@ -344,7 +344,7 @@ typeof [`IDBError`](idb_error.IDBError.md)
 
 #### Defined in
 
-[src/idb-error.ts:15](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-error.ts#L15)
+[src/idb-error.ts:15](https://github.com/isdk/idb.js/blob/4346aae/src/idb-error.ts#L15)
 
 ___
 
@@ -368,7 +368,7 @@ ___
 
 #### Defined in
 
-[src/idb-error.ts:25](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-error.ts#L25)
+[src/idb-error.ts:25](https://github.com/isdk/idb.js/blob/4346aae/src/idb-error.ts#L25)
 
 ___
 
@@ -392,7 +392,7 @@ ___
 
 #### Defined in
 
-[src/idb-error.ts:24](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-error.ts#L24)
+[src/idb-error.ts:24](https://github.com/isdk/idb.js/blob/4346aae/src/idb-error.ts#L24)
 
 ___
 
@@ -416,7 +416,7 @@ ___
 
 #### Defined in
 
-[src/idb-error.ts:21](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-error.ts#L21)
+[src/idb-error.ts:21](https://github.com/isdk/idb.js/blob/4346aae/src/idb-error.ts#L21)
 
 ___
 
@@ -440,7 +440,7 @@ ___
 
 #### Defined in
 
-[src/idb-error.ts:23](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-error.ts#L23)
+[src/idb-error.ts:23](https://github.com/isdk/idb.js/blob/4346aae/src/idb-error.ts#L23)
 
 ___
 
@@ -464,7 +464,7 @@ ___
 
 #### Defined in
 
-[src/idb-error.ts:22](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-error.ts#L22)
+[src/idb-error.ts:22](https://github.com/isdk/idb.js/blob/4346aae/src/idb-error.ts#L22)
 
 ## Methods
 

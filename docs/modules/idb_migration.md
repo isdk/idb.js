@@ -29,7 +29,7 @@
 
 #### Defined in
 
-[src/idb-migration.ts:82](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-migration.ts#L82)
+[src/idb-migration.ts:82](https://github.com/isdk/idb.js/blob/4346aae/src/idb-migration.ts#L82)
 
 ___
 
@@ -41,7 +41,7 @@ An array of IDBMigration objects.
 
 #### Defined in
 
-[src/idb-migration.ts:128](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-migration.ts#L128)
+[src/idb-migration.ts:128](https://github.com/isdk/idb.js/blob/4346aae/src/idb-migration.ts#L128)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[src/idb-migration.ts:70](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-migration.ts#L70)
+[src/idb-migration.ts:70](https://github.com/isdk/idb.js/blob/4346aae/src/idb-migration.ts#L70)
 
 ## Functions
 
@@ -114,7 +114,7 @@ await rollback([
 
 #### Defined in
 
-[src/idb-migration.ts:255](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-migration.ts#L255)
+[src/idb-migration.ts:255](https://github.com/isdk/idb.js/blob/4346aae/src/idb-migration.ts#L255)
 
 ___
 
@@ -192,4 +192,4 @@ await upgrade([
 
 #### Defined in
 
-[src/idb-migration.ts:193](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-migration.ts#L193)
+[src/idb-migration.ts:193](https://github.com/isdk/idb.js/blob/4346aae/src/idb-migration.ts#L193)

@@ -21,7 +21,7 @@ the max item count of the IDBIterator
 
 #### Defined in
 
-[src/idb-iterator.ts:28](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L28)
+[src/idb-iterator.ts:28](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L28)
 
 ___
 
@@ -33,4 +33,4 @@ the next callback function
 
 #### Defined in
 
-[src/idb-iterator.ts:24](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L24)
+[src/idb-iterator.ts:24](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L24)

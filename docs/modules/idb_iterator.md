@@ -44,4 +44,4 @@ You should execute cursor.continue() in it
 
 #### Defined in
 
-[src/idb-iterator.ts:16](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-iterator.ts#L16)
+[src/idb-iterator.ts:16](https://github.com/isdk/idb.js/blob/4346aae/src/idb-iterator.ts#L16)

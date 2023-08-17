@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/idb-migration.ts:89](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-migration.ts#L89)
+[src/idb-migration.ts:89](https://github.com/isdk/idb.js/blob/4346aae/src/idb-migration.ts#L89)
 
 ___
 
@@ -54,7 +54,7 @@ the index name
 
 #### Defined in
 
-[src/idb-migration.ts:88](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-migration.ts#L88)
+[src/idb-migration.ts:88](https://github.com/isdk/idb.js/blob/4346aae/src/idb-migration.ts#L88)
 
 ___
 
@@ -66,7 +66,7 @@ the index belongs to the store name
 
 #### Defined in
 
-[src/idb-migration.ts:93](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-migration.ts#L93)
+[src/idb-migration.ts:93](https://github.com/isdk/idb.js/blob/4346aae/src/idb-migration.ts#L93)
 
 ___
 
