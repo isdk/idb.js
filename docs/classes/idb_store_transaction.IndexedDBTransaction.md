@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[src/idb-store-transaction.ts:196](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L196)
+[src/idb-store-transaction.ts:196](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L196)
 
 ## Properties
 
@@ -61,7 +61,7 @@
 
 #### Defined in
 
-[src/idb-store-transaction.ts:170](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L170)
+[src/idb-store-transaction.ts:170](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L170)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:168](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L168)
+[src/idb-store-transaction.ts:168](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L168)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:169](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L169)
+[src/idb-store-transaction.ts:169](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L169)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:171](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L171)
+[src/idb-store-transaction.ts:171](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L171)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:167](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L167)
+[src/idb-store-transaction.ts:167](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L167)
 
 ## Accessors
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:173](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L173)
+[src/idb-store-transaction.ts:173](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L173)
 
 ___
 
@@ -129,7 +129,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:185](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L185)
+[src/idb-store-transaction.ts:185](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L185)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:177](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L177)
+[src/idb-store-transaction.ts:177](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L177)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:181](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L181)
+[src/idb-store-transaction.ts:181](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L181)
 
 ___
 
@@ -171,7 +171,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:189](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L189)
+[src/idb-store-transaction.ts:189](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L189)
 
 ## Methods
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:261](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L261)
+[src/idb-store-transaction.ts:261](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L261)
 
 ___
 
@@ -205,7 +205,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:244](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L244)
+[src/idb-store-transaction.ts:244](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L244)
 
 ___
 
@@ -219,7 +219,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:232](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L232)
+[src/idb-store-transaction.ts:232](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L232)
 
 ___
 
@@ -242,7 +242,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:205](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L205)
+[src/idb-store-transaction.ts:205](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L205)
 
 ___
 
@@ -262,4 +262,4 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:251](https://github.com/isdk/idb.js/blob/6598250/src/idb-store-transaction.ts#L251)
+[src/idb-store-transaction.ts:251](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-store-transaction.ts#L251)

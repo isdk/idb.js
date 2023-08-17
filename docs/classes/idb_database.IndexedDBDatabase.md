@@ -44,7 +44,7 @@ Constructs a new instance of IndexedDBDatabase.
 
 #### Defined in
 
-[src/idb-database.ts:54](https://github.com/isdk/idb.js/blob/6598250/src/idb-database.ts#L54)
+[src/idb-database.ts:54](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-database.ts#L54)
 
 ## Properties
 
@@ -54,7 +54,7 @@ Constructs a new instance of IndexedDBDatabase.
 
 #### Defined in
 
-[src/idb-database.ts:12](https://github.com/isdk/idb.js/blob/6598250/src/idb-database.ts#L12)
+[src/idb-database.ts:12](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-database.ts#L12)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/idb-database.ts:13](https://github.com/isdk/idb.js/blob/6598250/src/idb-database.ts#L13)
+[src/idb-database.ts:13](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-database.ts#L13)
 
 ## Accessors
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/idb-database.ts:36](https://github.com/isdk/idb.js/blob/6598250/src/idb-database.ts#L36)
+[src/idb-database.ts:36](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-database.ts#L36)
 
 ___
 
@@ -94,7 +94,7 @@ Gets the name of the database.
 
 #### Defined in
 
-[src/idb-database.ts:18](https://github.com/isdk/idb.js/blob/6598250/src/idb-database.ts#L18)
+[src/idb-database.ts:18](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-database.ts#L18)
 
 ___
 
@@ -110,7 +110,7 @@ Gets the names of the object stores in the database.
 
 #### Defined in
 
-[src/idb-database.ts:25](https://github.com/isdk/idb.js/blob/6598250/src/idb-database.ts#L25)
+[src/idb-database.ts:25](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-database.ts#L25)
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-[src/idb-database.ts:43](https://github.com/isdk/idb.js/blob/6598250/src/idb-database.ts#L43)
+[src/idb-database.ts:43](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-database.ts#L43)
 
 ___
 
@@ -140,7 +140,7 @@ Gets the version of the database.
 
 #### Defined in
 
-[src/idb-database.ts:32](https://github.com/isdk/idb.js/blob/6598250/src/idb-database.ts#L32)
+[src/idb-database.ts:32](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-database.ts#L32)
 
 ## Methods
 
@@ -154,7 +154,7 @@ Gets the version of the database.
 
 #### Defined in
 
-[src/idb-database.ts:145](https://github.com/isdk/idb.js/blob/6598250/src/idb-database.ts#L145)
+[src/idb-database.ts:145](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-database.ts#L145)
 
 ___
 
@@ -168,7 +168,7 @@ ___
 
 #### Defined in
 
-[src/idb-database.ts:158](https://github.com/isdk/idb.js/blob/6598250/src/idb-database.ts#L158)
+[src/idb-database.ts:158](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-database.ts#L158)
 
 ___
 
@@ -190,7 +190,7 @@ ___
 
 #### Defined in
 
-[src/idb-database.ts:133](https://github.com/isdk/idb.js/blob/6598250/src/idb-database.ts#L133)
+[src/idb-database.ts:133](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-database.ts#L133)
 
 ___
 
@@ -216,7 +216,7 @@ A Promise that resolves to the opened IDBDatabase.
 
 #### Defined in
 
-[src/idb-database.ts:63](https://github.com/isdk/idb.js/blob/6598250/src/idb-database.ts#L63)
+[src/idb-database.ts:63](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-database.ts#L63)
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 #### Defined in
 
-[src/idb-database.ts:164](https://github.com/isdk/idb.js/blob/6598250/src/idb-database.ts#L164)
+[src/idb-database.ts:164](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-database.ts#L164)
 
 ___
 
@@ -258,4 +258,4 @@ ___
 
 #### Defined in
 
-[src/idb-database.ts:47](https://github.com/isdk/idb.js/blob/6598250/src/idb-database.ts#L47)
+[src/idb-database.ts:47](https://github.com/isdk/idb.js/blob/41b9e65/src/idb-database.ts#L47)
