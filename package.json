@@ -18,8 +18,14 @@
     "storage"
   ],
   "main": "./lib/index.js",
-  "module": "./src/index.js",
+  "module": "./lib/index.mjs",
   "type": "commonjs",
+  "files": [
+    "lib",
+    "src",
+    "docs",
+    "dist"
+  ],
   "devDependencies": {
     "@antfu/eslint-config": "^0.40.2",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
@@ -38,19 +44,21 @@
   },
   "scripts": {
     "build-fast": "tsup",
-    "build": "npm run build-fast --dts-resolve --dts && npm run doc.md",
+    "build": "npm run build-fast && npm run doc.md",
+    "build.temp": "npm run build-fast -- --dts-resolve --dts && npm run doc.md",
     "build.cjs": "babel src --out-dir lib --config-file ./.babelrc",
     "build.ts": "tsc --declaration --emitDeclarationOnly --outDir lib",
     "clean": "rm -fr web docs lib",
     "clean.doc": "rm -fr web docs",
-    "clean.ts": "rm -fr lib/*.d.ts",
-    "clean.lib": "rm -fr lib",
+    "clean.ts": "rm -fr lib/*.d.?ts",
+    "clean.lib": "rm -fr lib dist",
     "doc": "typedoc --plugin none --out web ./src",
     "doc.md": "typedoc --plugin typedoc-plugin-markdown --out docs ./src",
     "lint": "npx eslint --config .eslintrc.yml src",
     "lint.fix": "npm run lint -- --fix",
-    "release": "npm run clean && npm run build && git add docs && git ci -m 'docs: update API docs' && npx commit-and-tag-version -s",
+    "release": "npm run buildall && npx commit-and-tag-version -s",
     "release.alpha": "npm run release -- --prerelease alpha",
+    "buildall": "npm run clean && npm run build && git add docs && git ci -m 'docs: update API docs'",
     "test": "vitest run"
   },
   "dependencies": {
