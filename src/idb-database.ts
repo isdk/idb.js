@@ -1,7 +1,7 @@
 import { IDBErrors } from './idb-error'
 import type { IDBMigrations, MingrationFn } from './idb-migration'
 import { upgrade } from "./idb-migration";
-import { IndexedDBTransaction } from './idb-transaction';
+import { IndexedDBTransaction } from './idb-store-transaction';
 import { reqToPromise } from './idb-util';
 
 

@@ -14,3 +14,15 @@ export async function reqToPromise(req: IDBRequest) {
     reqGenEvent(req, resolve, reject);
   });
 }
+
+export function handleError(cb: Function | Event, event?: Event) {
+  if (cb instanceof Event) {
+    event = cb
+    cb = undefined
+  }
+  event.preventDefault()
+  event.stopPropagation()
+  if (typeof cb === 'function') {
+    cb((event.target as any).error)
+  }
+}
