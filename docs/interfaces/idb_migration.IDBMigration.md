@@ -28,7 +28,7 @@ the index(es) added to exists object store
 
 #### Defined in
 
-[src/idb-migration.ts:121](https://github.com/isdk/idb.js/blob/576c329/src/idb-migration.ts#L121)
+[src/idb-migration.ts:121](https://github.com/isdk/idb.js/blob/6598250/src/idb-migration.ts#L121)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-[src/idb-migration.ts:122](https://github.com/isdk/idb.js/blob/576c329/src/idb-migration.ts#L122)
+[src/idb-migration.ts:122](https://github.com/isdk/idb.js/blob/6598250/src/idb-migration.ts#L122)
 
 ___
 
@@ -50,7 +50,7 @@ The function to be called during a rollback from this version.
 
 #### Defined in
 
-[src/idb-migration.ts:111](https://github.com/isdk/idb.js/blob/576c329/src/idb-migration.ts#L111)
+[src/idb-migration.ts:111](https://github.com/isdk/idb.js/blob/6598250/src/idb-migration.ts#L111)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[src/idb-migration.ts:116](https://github.com/isdk/idb.js/blob/576c329/src/idb-migration.ts#L116)
+[src/idb-migration.ts:116](https://github.com/isdk/idb.js/blob/6598250/src/idb-migration.ts#L116)
 
 ___
 
@@ -72,7 +72,7 @@ the object store(s) to create
 
 #### Defined in
 
-[src/idb-migration.ts:115](https://github.com/isdk/idb.js/blob/576c329/src/idb-migration.ts#L115)
+[src/idb-migration.ts:115](https://github.com/isdk/idb.js/blob/6598250/src/idb-migration.ts#L115)
 
 ___
 
@@ -84,7 +84,7 @@ The function to be called during an upgrade to this version.
 
 #### Defined in
 
-[src/idb-migration.ts:107](https://github.com/isdk/idb.js/blob/576c329/src/idb-migration.ts#L107)
+[src/idb-migration.ts:107](https://github.com/isdk/idb.js/blob/6598250/src/idb-migration.ts#L107)
 
 ___
 
@@ -96,4 +96,4 @@ The version of the migration.
 
 #### Defined in
 
-[src/idb-migration.ts:103](https://github.com/isdk/idb.js/blob/576c329/src/idb-migration.ts#L103)
+[src/idb-migration.ts:103](https://github.com/isdk/idb.js/blob/6598250/src/idb-migration.ts#L103)

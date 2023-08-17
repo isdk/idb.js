@@ -29,7 +29,7 @@
 
 #### Defined in
 
-[src/idb-util.ts:18](https://github.com/isdk/idb.js/blob/576c329/src/idb-util.ts#L18)
+[src/idb-util.ts:18](https://github.com/isdk/idb.js/blob/6598250/src/idb-util.ts#L18)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[src/idb-util.ts:1](https://github.com/isdk/idb.js/blob/576c329/src/idb-util.ts#L1)
+[src/idb-util.ts:1](https://github.com/isdk/idb.js/blob/6598250/src/idb-util.ts#L1)
 
 ___
 
@@ -71,4 +71,4 @@ ___
 
 #### Defined in
 
-[src/idb-util.ts:12](https://github.com/isdk/idb.js/blob/576c329/src/idb-util.ts#L12)
+[src/idb-util.ts:12](https://github.com/isdk/idb.js/blob/6598250/src/idb-util.ts#L12)
