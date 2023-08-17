@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/idb-error.ts:12](https://github.com/isdk/idb.js/blob/8949a63/src/idb-error.ts#L12)
+[src/idb-error.ts:12](https://github.com/isdk/idb.js/blob/576c329/src/idb-error.ts#L12)
 
 ## Functions
 
@@ -50,4 +50,4 @@ typeof [`IDBError`](../classes/idb_error.IDBError.md)
 
 #### Defined in
 
-[src/idb-error.ts:34](https://github.com/isdk/idb.js/blob/8949a63/src/idb-error.ts#L34)
+[src/idb-error.ts:34](https://github.com/isdk/idb.js/blob/576c329/src/idb-error.ts#L34)

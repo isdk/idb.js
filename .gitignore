@@ -4,5 +4,4 @@ npm*
 .npmrc
 dist/
 .nyc_output/
-docs/
 web/

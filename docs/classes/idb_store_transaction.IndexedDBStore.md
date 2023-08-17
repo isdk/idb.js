@@ -75,7 +75,7 @@ Constructs a new IndexedDBStore.
 
 #### Defined in
 
-[src/idb-store-transaction.ts:47](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L47)
+[src/idb-store-transaction.ts:47](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L47)
 
 ## Properties
 
@@ -91,7 +91,7 @@ The underlying IDBObjectStore.
 
 #### Defined in
 
-[src/idb-store-transaction.ts:48](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L48)
+[src/idb-store-transaction.ts:48](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L48)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:49](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L49)
+[src/idb-store-transaction.ts:49](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L49)
 
 ## Accessors
 
@@ -117,7 +117,7 @@ Gets a value indicating whether the object store has an auto-incrementing key.
 
 #### Defined in
 
-[src/idb-store-transaction.ts:30](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L30)
+[src/idb-store-transaction.ts:30](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L30)
 
 ___
 
@@ -133,7 +133,7 @@ Gets the index names associated with the object store.
 
 #### Defined in
 
-[src/idb-store-transaction.ts:13](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L13)
+[src/idb-store-transaction.ts:13](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L13)
 
 ___
 
@@ -153,7 +153,7 @@ IndexedDBBaseStore.keyPath
 
 #### Defined in
 
-[src/idb-base-store.ts:11](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L11)
+[src/idb-base-store.ts:11](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L11)
 
 ___
 
@@ -173,7 +173,7 @@ IndexedDBBaseStore.name
 
 #### Defined in
 
-[src/idb-base-store.ts:18](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L18)
+[src/idb-base-store.ts:18](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L18)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:39](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L39)
+[src/idb-store-transaction.ts:39](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L39)
 
 ___
 
@@ -201,7 +201,7 @@ ___
 
 #### Defined in
 
-[src/idb-store-transaction.ts:34](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L34)
+[src/idb-store-transaction.ts:34](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L34)
 
 ___
 
@@ -217,7 +217,7 @@ Gets the transaction associated with the object store.
 
 #### Defined in
 
-[src/idb-store-transaction.ts:20](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L20)
+[src/idb-store-transaction.ts:20](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L20)
 
 ## Methods
 
@@ -231,7 +231,7 @@ Gets the transaction associated with the object store.
 
 #### Defined in
 
-[src/idb-store-transaction.ts:154](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L154)
+[src/idb-store-transaction.ts:154](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L154)
 
 ___
 
@@ -262,7 +262,7 @@ await store.add({ name: 'John', age: 30 }, 1);
 
 #### Defined in
 
-[src/idb-store-transaction.ts:86](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L86)
+[src/idb-store-transaction.ts:86](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L86)
 
 ___
 
@@ -286,7 +286,7 @@ await store.clear();
 
 #### Defined in
 
-[src/idb-store-transaction.ts:111](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L111)
+[src/idb-store-transaction.ts:111](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L111)
 
 ___
 
@@ -320,7 +320,7 @@ const count = await baseStore.count('John');
 
 #### Defined in
 
-[src/idb-base-store.ts:149](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L149)
+[src/idb-base-store.ts:149](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L149)
 
 ___
 
@@ -352,7 +352,7 @@ const index = store.createIndex('nameIndex', 'name');
 
 #### Defined in
 
-[src/idb-store-transaction.ts:125](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L125)
+[src/idb-store-transaction.ts:125](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L125)
 
 ___
 
@@ -380,7 +380,7 @@ store.deleteIndex('nameIndex');
 
 #### Defined in
 
-[src/idb-store-transaction.ts:139](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L139)
+[src/idb-store-transaction.ts:139](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L139)
 
 ___
 
@@ -420,7 +420,7 @@ const value = await baseStore.get(1);
 
 #### Defined in
 
-[src/idb-base-store.ts:35](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L35)
+[src/idb-base-store.ts:35](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L35)
 
 ___
 
@@ -455,7 +455,7 @@ const values = await baseStore.getAll('John');
 
 #### Defined in
 
-[src/idb-base-store.ts:48](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L48)
+[src/idb-base-store.ts:48](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L48)
 
 ___
 
@@ -490,7 +490,7 @@ const keys = await baseStore.getAllKeys('John');
 
 #### Defined in
 
-[src/idb-base-store.ts:61](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L61)
+[src/idb-base-store.ts:61](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L61)
 
 ___
 
@@ -528,7 +528,7 @@ const values = await baseStore.getMulti(['key1', 'key2']);
 
 #### Defined in
 
-[src/idb-base-store.ts:89](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L89)
+[src/idb-base-store.ts:89](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L89)
 
 ___
 
@@ -566,7 +566,7 @@ const values = await baseStore.getMultiple(['key1', 'key2']);
 
 #### Defined in
 
-[src/idb-base-store.ts:138](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L138)
+[src/idb-base-store.ts:138](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L138)
 
 ___
 
@@ -596,7 +596,7 @@ const index = store.index('nameIndex');
 
 #### Defined in
 
-[src/idb-store-transaction.ts:150](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L150)
+[src/idb-store-transaction.ts:150](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L150)
 
 ___
 
@@ -631,7 +631,7 @@ const json = await baseStore.json('John');
 
 #### Defined in
 
-[src/idb-base-store.ts:162](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L162)
+[src/idb-base-store.ts:162](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L162)
 
 ___
 
@@ -666,7 +666,7 @@ const keys = await baseStore.keys('John');
 
 #### Defined in
 
-[src/idb-base-store.ts:181](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L181)
+[src/idb-base-store.ts:181](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L181)
 
 ___
 
@@ -697,7 +697,7 @@ await store.put({ name: 'John', age: 30 }, 1);
 
 #### Defined in
 
-[src/idb-store-transaction.ts:73](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L73)
+[src/idb-store-transaction.ts:73](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L73)
 
 ___
 
@@ -727,7 +727,7 @@ await store.remove(1);
 
 #### Defined in
 
-[src/idb-store-transaction.ts:100](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L100)
+[src/idb-store-transaction.ts:100](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L100)
 
 ___
 
@@ -756,7 +756,7 @@ await store.set(1, { name: 'John', age: 30 });
 
 #### Defined in
 
-[src/idb-store-transaction.ts:61](https://github.com/isdk/idb.js/blob/8949a63/src/idb-store-transaction.ts#L61)
+[src/idb-store-transaction.ts:61](https://github.com/isdk/idb.js/blob/576c329/src/idb-store-transaction.ts#L61)
 
 ___
 
@@ -791,4 +791,4 @@ const values = await baseStore.values('John');
 
 #### Defined in
 
-[src/idb-base-store.ts:193](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L193)
+[src/idb-base-store.ts:193](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L193)

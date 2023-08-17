@@ -60,7 +60,7 @@ Represents a base store for interacting with an IndexedDB object store.
 
 #### Defined in
 
-[src/idb-index.ts:16](https://github.com/isdk/idb.js/blob/8949a63/src/idb-index.ts#L16)
+[src/idb-index.ts:16](https://github.com/isdk/idb.js/blob/576c329/src/idb-index.ts#L16)
 
 ## Properties
 
@@ -76,7 +76,7 @@ The underlying IDBObjectStore or IDBIndex.
 
 #### Defined in
 
-[src/idb-index.ts:16](https://github.com/isdk/idb.js/blob/8949a63/src/idb-index.ts#L16)
+[src/idb-index.ts:16](https://github.com/isdk/idb.js/blob/576c329/src/idb-index.ts#L16)
 
 ## Accessors
 
@@ -96,7 +96,7 @@ IndexedDBBaseStore.keyPath
 
 #### Defined in
 
-[src/idb-base-store.ts:11](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L11)
+[src/idb-base-store.ts:11](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L11)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[src/idb-index.ts:4](https://github.com/isdk/idb.js/blob/8949a63/src/idb-index.ts#L4)
+[src/idb-index.ts:4](https://github.com/isdk/idb.js/blob/576c329/src/idb-index.ts#L4)
 
 ___
 
@@ -130,7 +130,7 @@ IndexedDBBaseStore.name
 
 #### Defined in
 
-[src/idb-base-store.ts:18](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L18)
+[src/idb-base-store.ts:18](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L18)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[src/idb-index.ts:8](https://github.com/isdk/idb.js/blob/8949a63/src/idb-index.ts#L8)
+[src/idb-index.ts:8](https://github.com/isdk/idb.js/blob/576c329/src/idb-index.ts#L8)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[src/idb-index.ts:12](https://github.com/isdk/idb.js/blob/8949a63/src/idb-index.ts#L12)
+[src/idb-index.ts:12](https://github.com/isdk/idb.js/blob/576c329/src/idb-index.ts#L12)
 
 ## Methods
 
@@ -192,7 +192,7 @@ const count = await baseStore.count('John');
 
 #### Defined in
 
-[src/idb-base-store.ts:149](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L149)
+[src/idb-base-store.ts:149](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L149)
 
 ___
 
@@ -232,7 +232,7 @@ const value = await baseStore.get(1);
 
 #### Defined in
 
-[src/idb-base-store.ts:35](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L35)
+[src/idb-base-store.ts:35](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L35)
 
 ___
 
@@ -267,7 +267,7 @@ const values = await baseStore.getAll('John');
 
 #### Defined in
 
-[src/idb-base-store.ts:48](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L48)
+[src/idb-base-store.ts:48](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L48)
 
 ___
 
@@ -302,7 +302,7 @@ const keys = await baseStore.getAllKeys('John');
 
 #### Defined in
 
-[src/idb-base-store.ts:61](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L61)
+[src/idb-base-store.ts:61](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L61)
 
 ___
 
@@ -340,7 +340,7 @@ const values = await baseStore.getMulti(['key1', 'key2']);
 
 #### Defined in
 
-[src/idb-base-store.ts:89](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L89)
+[src/idb-base-store.ts:89](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L89)
 
 ___
 
@@ -378,7 +378,7 @@ const values = await baseStore.getMultiple(['key1', 'key2']);
 
 #### Defined in
 
-[src/idb-base-store.ts:138](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L138)
+[src/idb-base-store.ts:138](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L138)
 
 ___
 
@@ -413,7 +413,7 @@ const json = await baseStore.json('John');
 
 #### Defined in
 
-[src/idb-base-store.ts:162](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L162)
+[src/idb-base-store.ts:162](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L162)
 
 ___
 
@@ -448,7 +448,7 @@ const keys = await baseStore.keys('John');
 
 #### Defined in
 
-[src/idb-base-store.ts:181](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L181)
+[src/idb-base-store.ts:181](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L181)
 
 ___
 
@@ -483,4 +483,4 @@ const values = await baseStore.values('John');
 
 #### Defined in
 
-[src/idb-base-store.ts:193](https://github.com/isdk/idb.js/blob/8949a63/src/idb-base-store.ts#L193)
+[src/idb-base-store.ts:193](https://github.com/isdk/idb.js/blob/576c329/src/idb-base-store.ts#L193)
