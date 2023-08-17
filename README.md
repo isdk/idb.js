@@ -84,6 +84,17 @@ const migrations = [
       }
     ],
   },
+  {
+    version: 2, 
+    // add indexes to exists store
+    indexes: [
+      {
+        store: 'books',
+        name: 'ixCategory',
+        keyPath: 'category', options: {unique: false}
+      }
+    ]
+  }
 ];
 ```
 
@@ -93,7 +104,7 @@ Mixed migration using both callback functions and stores
 const migrations = [
   {
     version: 1,
-    names: 'books',
+    stores: 'books',
     upgrade: (db, transaction) => transaction.objectStore('books').createIndex('title', 'title', { unique: false })
   }
 ];
